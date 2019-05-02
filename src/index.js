@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
 import { render } from 'react-dom';
 import './style.css';
 
@@ -32,46 +32,43 @@ const App = () => (
   </ProfileProvider>
 );
 
-const Profile = () => (
-  <div className="profile">
-    <ProfileContext.Consumer>
-      {context => <img src={context.companyImage} />}
-    </ProfileContext.Consumer>
-    <User />
-  </div>
-)
+const Profile = () => {
+  const context = useContext(ProfileContext);
+  return (
+    <div className="profile">
+      <img src={context.companyImage} />
+      <User />
+    </div>
+  )
+}
 
-const User = () => (
-  <div className="user">
-    <ProfileContext.Consumer>
-      {context =>
-        <React.Fragment>
-          <a href={context.url}>
-            <img src={context.userImage} width="138px" />
-          </a>
-          <h1 className="profile-userName">{context.userName}</h1>
-          <p className="profile-fullName">({context.fullName})</p>
-          <Team />
-          <button className="profile-button"
-            onClick={() => context.changeTeam('Angular')}>Angular</button>
-          <button className="profile-button"
-            onClick={() => context.changeTeam('Vue')}>Vue</button>
-          <button className="profile-button"
-            onClick={() => context.changeTeam('React')}>React</button>
-        </React.Fragment>
-      }
-    </ProfileContext.Consumer>
-  </div>
-)
+const User = () => {
+  const context = useContext(ProfileContext);
+  return (
+    <div className="user">
+      <a href={context.url}>
+        <img src={context.userImage} width="138px" />
+      </a>
+      <h1 className="profile-userName">{context.userName}</h1>
+      <p className="profile-fullName">({context.fullName})</p>
+      <Team />
+      <button className="profile-button"
+        onClick={() => context.changeTeam('Angular')}>Angular</button>
+      <button className="profile-button"
+        onClick={() => context.changeTeam('Vue')}>Vue</button>
+      <button className="profile-button"
+        onClick={() => context.changeTeam('React')}>React</button>
+    </div>
+  )
+}
 
-const Team = () => (
-  <ProfileContext.Consumer>
-    {context =>
-      <div className="team">
-        <p className="profile-team">{context.team}</p>
-      </div>
-    }
-  </ProfileContext.Consumer>
-)
+const Team = () => {
+  const context = useContext(ProfileContext);
+  return (
+    <div className="team">
+      <p className="profile-team">{context.team}</p>
+    </div>
+  )
+}
 
 render(<App />, document.getElementById('root'));
