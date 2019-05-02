@@ -11,7 +11,10 @@ class ProfileProvider extends React.Component {
     userImage: 'https://i.imgur.com/Y1XRKLf.png',
     userName: 'Kendoken',
     fullName: 'Kendoken No Michi',
-    team: 'KendoReact'
+    team: 'KendoReact',
+    changeTeam: (team) => this.setState({
+      team: `Kendo${team}`
+    })
   }
   render() {
     return (
@@ -47,10 +50,16 @@ const User = () => (
           </a>
           <h1 className="profile-userName">{context.userName}</h1>
           <p className="profile-fullName">({context.fullName})</p>
+          <Team />
+          <button className="profile-button"
+            onClick={() => context.changeTeam('Angular')}>Angular</button>
+          <button className="profile-button"
+            onClick={() => context.changeTeam('Vue')}>Vue</button>
+          <button className="profile-button"
+            onClick={() => context.changeTeam('React')}>React</button>
         </React.Fragment>
       }
     </ProfileContext.Consumer>
-    <Team />
   </div>
 )
 
