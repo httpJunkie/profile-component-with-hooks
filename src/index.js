@@ -52,12 +52,7 @@ const User = () => {
       <h1 className="profile-userName">{context.userName}</h1>
       <p className="profile-fullName">({context.fullName})</p>
       <Team />
-      <button className="profile-button"
-        onClick={() => context.changeTeam('Angular')}>Angular</button>
-      <button className="profile-button"
-        onClick={() => context.changeTeam('Vue')}>Vue</button>
-      <button className="profile-button"
-        onClick={() => context.changeTeam('React')}>React</button>
+      <ChangeTeam />
     </div>
   )
 }
@@ -68,6 +63,20 @@ const Team = () => {
     <div className="team">
       <p className="profile-team">{context.team}</p>
     </div>
+  )
+}
+
+const ChangeTeam = () => {
+  const context = useContext(ProfileContext);
+  return (
+    <>
+      <button className="profile-button"
+        onClick={() => context.changeTeam('Angular')}>Angular</button>
+      <button className="profile-button"
+        onClick={() => context.changeTeam('Vue')}>Vue</button>
+      <button className="profile-button"
+        onClick={() => context.changeTeam('React')}>React</button>
+    </>
   )
 }
 
