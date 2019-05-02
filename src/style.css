@@ -1,0 +1,43 @@
+body {
+  background-color: #1B2634;
+}
+h1, p {
+  font-family: Lato;
+}
+h1.profile-userName {
+  margin: 0;
+  font-size: 3em;
+  color: #53D2FA;
+}
+p.profile-fullName {
+  margin-top: 0;
+  font-size: 1em;
+  color: #FFF;
+  font-weight: lighter;
+}
+p.profile-team {
+  margin-top: 0;
+  font-size: 1.5em;
+  color: rgb(151, 243, 255);
+  font-weight: lighter;
+}
+img:hover {
+  opacity: 0.5;
+  filter: alpha(opacity=50); /* For IE8 and earlier */
+}
+
+/* Toggle Outlines */
+/* .profile {
+  border: 2px solid hotpink;
+  padding: 0.5em;
+}
+.user {
+  margin: 2px;
+  border: 2px solid white;
+  padding: 0.5em;
+}
+.team {
+  margin: 2px;
+  border: 2px solid orange;
+  padding: 0.5em;
+} */
